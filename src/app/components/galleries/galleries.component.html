@@ -1,0 +1,20 @@
+<h2>All Galleries</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let gallery of galleries">
+        <td class="align-middle">{{ gallery.id }}</td>
+        <td class="align-middle">{{ gallery.name }}</td>
+        <td class="align-middle">{{ gallery.description }}</td>
+    </tr>
+</table>
+
+<router-outlet></router-outlet>
