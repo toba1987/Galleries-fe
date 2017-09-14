@@ -5,6 +5,7 @@ import { LoginComponent } from './components/auth/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { GuestGuard } from './shared/guards/guest.guard';
+import { CreateComponent } from './components/create/create.component';
 
 const appRoutes: Routes = [
   {
@@ -25,6 +26,11 @@ const appRoutes: Routes = [
         path: 'register',
         component: RegisterComponent,
         canActivate: [ GuestGuard ],
+    },
+    {
+        path: 'create',
+        component: CreateComponent,
+        canActivate: [ AuthGuard ],
     },
 ];
 

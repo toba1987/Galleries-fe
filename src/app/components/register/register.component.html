@@ -1,4 +1,4 @@
-<!-- <form #registerForm="ngForm" (ngSubmit)="submitContact(newUser); registerForm.reset()">
+<form #registerForm="ngForm" (ngSubmit)="registerUser(newUser); registerForm.reset()">
   <div class="form-group">
     <label>First name</label>
     <input #firstName="ngModel" [(ngModel)]="newUser.firstName" name='firstName' type="text" class="form-control" required minlength="2">
@@ -16,10 +16,9 @@
 
   <div class="form-group">
     <label>Last name</label>
-    <input #lastName="ngModel" [(ngModel)]="newContact.lastName" name='lastName' type="text" class="form-control" required minlength="2">
+    <input #lastName="ngModel" [(ngModel)]="newUser.lastName" name='lastName' type="text" class="form-control" required minlength="2">
 
-    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
-         class="alert alert-danger">
+    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
       <div *ngIf="lastName.errors.required">
         Last Name is required.
       </div>
@@ -31,10 +30,9 @@
 
   <div class="form-group">
     <label>Email address</label>
-    <input #email="ngModel" [(ngModel)]="newContact.email" name='email' type="text" class="form-control" required email>
+    <input #email="ngModel" [(ngModel)]="newUser.email" name='email' type="text" class="form-control" required email>
 
-    <div *ngIf="email.invalid && (email.dirty || email.touched)"
-         class="alert alert-danger">
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
       <div *ngIf="email.errors.required">
         Email is required.
       </div>
@@ -47,8 +45,7 @@
   <div class="form-group">
     <label>Password</label>
     <input  #password="ngModel" [(ngModel)]="newUser.password" name="password" type="password" class="form-control" required minlength="2">
-    <div *ngIf="password.invalid && (password.dirty || password.touched)"
-         class="alert alert-danger">
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
       <div *ngIf="password.errors.required">
         Last Name is required.
       </div>
@@ -61,8 +58,7 @@
   <div class="form-group">
     <label>Confirm Password</label>
     <input #confirmPassword="ngModel" [(ngModel)]="newUser.confirmpassword" name="confirmPassword" type="password" class="form-control" required [equalTo]="password">
-    <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"
-         class="alert alert-danger">
+    <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="alert alert-danger">
       <div *ngIf="confirmPassword.errors.required">
         Confirm Password is required.
       </div>
@@ -77,6 +73,7 @@
       I accept terms and conditions
     </label>
   </div>
+  <button type="submit" class="btn btn-primary"
+          [disabled]="!registerForm.form.valid"
+  >Register</button>
 </form>
--->
-<p>register</p>
