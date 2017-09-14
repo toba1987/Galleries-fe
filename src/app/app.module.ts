@@ -7,12 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { LayoutComponent } from './components/layout/layout.component';
 import { GalleriesComponent } from './components/galleries/galleries.component';
 import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './components/auth/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    GalleriesComponent
+    GalleriesComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

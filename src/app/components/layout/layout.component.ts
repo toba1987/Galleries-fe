@@ -1,14 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AuthService } from './../../shared/services/auth.service';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor(private auth: AuthService) { }
 
 }

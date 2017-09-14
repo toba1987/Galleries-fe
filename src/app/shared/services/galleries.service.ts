@@ -2,19 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Gallery } from './../models/gallery.model';
 import { Observable, Observer } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class GalleriesService {
 
     private galleries: Gallery[] = [];
 
-  constructor( private http: HttpClient ) { }
+  constructor( private http: HttpClient,
+               private auth: AuthService) { }
 
     public getGalleries()
     {
         return new Observable((o: Observer<any>) => {
 
-            this.http.get('http://localhost:8000/api/galleries')
+            this.http.get('http://localhost:8000/api/galleries', {
+                headers: this.auth.getRequestHeaders()
+            })
                 .subscribe((galleries: any) =>{
               //  console.log(galleries);
                     this.galleries = galleries.data.map((gallery) => {
