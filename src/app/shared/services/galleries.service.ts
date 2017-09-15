@@ -20,13 +20,40 @@ export class GalleriesService {
                 headers: this.auth.getRequestHeaders()
             })
                 .subscribe((galleries: any) =>{
-              //  console.log(galleries);
                     this.galleries = galleries.data.map((gallery) => {
                         return new Gallery(gallery);
                     });
                     o.next(this.galleries);
                     return o.complete();
                 });
+        });
+    }
+
+    public getGalleryById(id: number){
+        return new Observable((o: Observer<any>) => {
+            this.http.get('http://localhost:8000/api/galleries/' + id, {
+                headers: this.auth.getRequestHeaders()
+            })
+                .subscribe((galleries: any) => {
+                    o.next(new Gallery(galleries));
+                    return o.complete();
+                });
+        });
+    }
+
+    public search(term)
+    {
+        return new Observable((o: Observer<any>) => {
+            this.http.get('http://localhost:8000/api/search/' + term, {
+                headers: this.auth.getRequestHeaders(),
+            })
+                 .subscribe((galleries: any) =>{
+                    this.galleries = galleries.map((gallery) => {
+                    return new Gallery(gallery);
+                });
+                o.next(this.galleries);
+                return o.complete();
+            });
         });
     }
 

@@ -24,5 +24,9 @@ export class GalleriesComponent {
         );
     }
 
+    viewGallery(galleryId){
+        this.galleriesService.getGalleryById(galleryId);
+    }
+
 
 }

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Observer } from "rxjs";
 import { Router } from '@angular/router';
 import { User } from './../models/user.model';
+import { CheckboxRequiredValidator } from '@angular/forms';
 
 @Injectable()
 export class AuthService {
@@ -53,6 +54,9 @@ export class AuthService {
                 last_name: user.lastName,
                 email: user.email,
                 password: user.password,
+                password_confirmation: user.password_confirmation,
+                accept: user.accept,
+
             })
                 .subscribe((user: any) => {
                     let c = new User(user);
@@ -65,4 +69,5 @@ export class AuthService {
 
         });
     }
+
 }

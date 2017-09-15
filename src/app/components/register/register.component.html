@@ -57,19 +57,19 @@
 
   <div class="form-group">
     <label>Confirm Password</label>
-    <input #confirmPassword="ngModel" [(ngModel)]="newUser.confirmpassword" name="confirmPassword" type="password" class="form-control" required [equalTo]="password">
-    <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="alert alert-danger">
-      <div *ngIf="confirmPassword.errors.required">
+    <input #password_confirmation="ngModel" [(ngModel)]="newUser.password_confirmation" name="password_confirmation" type="password" class="form-control" required [equalTo]="password">
+    <div *ngIf="password_confirmation.invalid && (password_confirmation.dirty || password_confirmation.touched)" class="alert alert-danger">
+      <div *ngIf="password_confirmation.errors.required">
         Confirm Password is required.
       </div>
-      <div *ngIf="confirmPassword.errors.equalTo">
+      <div *ngIf="password_confirmation.errors.equalTo">
         The confirmation doesn't match
       </div>
     </div>
   </div>
   <div class="form-check">
     <label class="form-check-label">
-      <input type="checkbox" class="form-check-input" name="accept" value="true">
+      <input #accept="ngModel" [(ngModel)]="newUser.accept" type="checkbox" name="accept" class="form-check-input" value="true" required>
       I accept terms and conditions
     </label>
   </div>

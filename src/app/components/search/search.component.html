@@ -1,0 +1,18 @@
+<form #searchForm="ngForm" (ngSubmit)="searchGalleries(searchFilter); searchForm.reset()" class="form-inline my-2 my-lg-0">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <input [(ngModel)]= "searchFilter" #search="ngModel" name="search" type="text" required minlength="3" class="form-control mr-sm-2" placeholder="Search" >
+      <span class="input-group-btn">
+          <button type="submit" class="btn btn-outline-dark my-2 my-sm-0" [disabled]="!searchForm.valid">Search</button>
+            <div *ngIf="search.invalid && (search.dirty || search.touched)" class="alert alert-danger">
+                <div *ngIf="search.errors.required">
+                    Search is required.
+                </div>
+                <div *ngIf="search.errors.minlength">
+                    You must have at least 3 characters long.
+                </div>
+            </div>
+      </span>
+    </div>
+  </div>
+</form>

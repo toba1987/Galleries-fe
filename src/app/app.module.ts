@@ -11,6 +11,8 @@ import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './components/auth/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CreateComponent } from './components/create/create.component';
+import { SearchComponent } from './components/search/search.component';
+import { SearchPageComponent } from './components/search/search-page/search-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { CreateComponent } from './components/create/create.component';
     GalleriesComponent,
     LoginComponent,
     RegisterComponent,
-    CreateComponent
+    CreateComponent,
+    SearchComponent,
+    SearchPageComponent
   ],
   imports: [
     BrowserModule,

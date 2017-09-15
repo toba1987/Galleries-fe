@@ -6,6 +6,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { GuestGuard } from './shared/guards/guest.guard';
 import { CreateComponent } from './components/create/create.component';
+import { SearchPageComponent } from './components/search/search-page/search-page.component';
+
 
 const appRoutes: Routes = [
   {
@@ -16,6 +18,11 @@ const appRoutes: Routes = [
     {
         path: 'galleries',
         component: GalleriesComponent,
+    },
+    {
+        path: 'search/:term',
+        component: SearchPageComponent
+
     },
     {
         path: 'login',

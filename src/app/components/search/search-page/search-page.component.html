@@ -1,0 +1,21 @@
+<h2>Search</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="card" style="width: 20rem;"class="col-4" *ngFor="let gallery of galleries" >
+      <img class="card-img-top" src= "{{ gallery.images[2].imageUrl }}" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title">{{ gallery.name }}</h4>
+        <p class="card-text">{{ gallery.description }}</p>
+        <p class="card-text">{{ gallery.user.first_name }} {{ gallery.user.last_name }}</p>
+        <p class="card-text">{{ gallery.created_at }}</p>
+        <button type="button" class="btn btn-primary" (click)="viewGallery(gallery.id)">View Gallery</button>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+

@@ -4,6 +4,8 @@ export class User {
     public lastName: string;
     public email: string;
     public password: string;
+    public password_confirmation: string;
+    public accept: boolean;
 
     constructor(
 
@@ -12,7 +14,9 @@ export class User {
             first_name?: string,
             last_name?: string,
             email?: string,
-            password?: string;
+            password?: string,
+            password_confirmation?: string,
+            accept?: boolean,
         }
   	) {
 	    Object.assign(this, data || {});
@@ -21,6 +25,8 @@ export class User {
             this.lastName = data.last_name || '';
             this.email = data.email || '';
             this.password = data.password || '';
+            this.password_confirmation = data.password_confirmation || '';
+            this.accept = data.accept || false;
         }
     }
 }
