@@ -7,7 +7,8 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { GuestGuard } from './shared/guards/guest.guard';
 import { CreateComponent } from './components/create/create.component';
 import { SearchPageComponent } from './components/search/search-page/search-page.component';
-
+import { GalleryViewComponent } from './components/gallery-view/gallery-view.component';
+import { MyGalleriesComponent } from './components/my-galleries/my-galleries.component';
 
 const appRoutes: Routes = [
   {
@@ -18,6 +19,16 @@ const appRoutes: Routes = [
     {
         path: 'galleries',
         component: GalleriesComponent,
+    },
+    {
+        path: 'my-galleries',
+        component: MyGalleriesComponent,
+        canActivate: [ AuthGuard ],
+    },
+    {
+        path: 'gallery/:id',
+        component: GalleryViewComponent,
+        canActivate: [ AuthGuard ],
     },
     {
         path: 'search/:term',

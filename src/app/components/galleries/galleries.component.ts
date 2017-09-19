@@ -2,6 +2,7 @@ import { Component, Injector } from '@angular/core';
 import { GalleriesService } from '../../shared/services/galleries.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Gallery } from '../../shared/models/gallery.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-galleries',
@@ -10,9 +11,11 @@ import { Gallery } from '../../shared/models/gallery.model';
 export class GalleriesComponent {
 
     private galleries: any[] = [];
-    private galleriesService: GalleriesService;
+   // private galleriesService: GalleriesService;
 
-    constructor(private injector: Injector) {
+    constructor(private galleriesService: GalleriesService,
+                private injector: Injector,
+                private router: Router) {
         this.galleriesService = this.injector.get(GalleriesService);
         this.galleriesService.getGalleries().subscribe(
             data => {
@@ -24,9 +27,13 @@ export class GalleriesComponent {
         );
     }
 
-    viewGallery(galleryId){
-        this.galleriesService.getGalleryById(galleryId);
+    viewGallery(galleryId) {
+
+        this.router.navigate(["gallery", galleryId]);
     }
 
+    loadMore(){
+
+    }
 
 }

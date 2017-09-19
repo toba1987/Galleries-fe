@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
 })
 export class RegisterComponent {
-    //private newContact: Contact = new Contact();
+
     private newUser: User = new User();
     private users: any[] = [];
 

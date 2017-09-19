@@ -13,6 +13,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { CreateComponent } from './components/create/create.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchPageComponent } from './components/search/search-page/search-page.component';
+import { GalleryViewComponent } from './components/gallery-view/gallery-view.component';
+import { MyGalleriesComponent } from './components/my-galleries/my-galleries.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { SearchPageComponent } from './components/search/search-page/search-page
     RegisterComponent,
     CreateComponent,
     SearchComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    GalleryViewComponent,
+    MyGalleriesComponent,
   ],
   imports: [
     BrowserModule,
